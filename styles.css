@@ -175,6 +175,34 @@ body::after {
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.project-disclaimer {
+    display: inline-block;
+    background: linear-gradient(135deg, #f59e0b, #ef4444);
+    color: white;
+    font-size: 0.65rem;
+    font-weight: 600;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.5rem;
+    margin-left: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);
+    animation: pulse-disclaimer 2s ease-in-out infinite;
+    position: relative;
+    z-index: 10;
+}
+
+@keyframes pulse-disclaimer {
+    0%, 100% { 
+        transform: scale(1);
+        box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);
+    }
+    50% { 
+        transform: scale(1.05);
+        box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+    }
+}
+
 .nav {
     margin-left: auto;
     position: relative;
@@ -1098,4 +1126,213 @@ body::after {
 
 .toast.warning i {
     color: var(--warning-color);
+}
+
+/* Contact Section */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.contact-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.85));
+    backdrop-filter: blur(20px);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        0 4px 16px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 30%, rgba(102, 126, 234, 0.05) 70%, transparent 100%);
+    opacity: 0;
+    transition: all 0.4s ease;
+    border-radius: 1.5rem;
+}
+
+.contact-card:hover::before {
+    opacity: 1;
+}
+
+.contact-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 
+        0 12px 40px rgba(102, 126, 234, 0.15),
+        0 8px 24px rgba(102, 126, 234, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    border-color: rgba(102, 126, 234, 0.2);
+}
+
+.contact-card h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+    font-size: 1.3rem;
+    font-weight: 600;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.contact-card h3 i {
+    font-size: 1.8rem;
+    width: 30px;
+    text-align: center;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transition: all 0.3s ease;
+}
+
+.contact-card:hover h3 i {
+    transform: scale(1.1) rotate(5deg);
+    -webkit-text-fill-color: #ffd700;
+    background-clip: text;
+}
+
+.contact-info {
+    position: relative;
+    z-index: 2;
+}
+
+.contact-info p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.contact-info p::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
+    width: 6px;
+    height: 6px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 50%;
+    animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+    0%, 100% { 
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    50% { 
+        transform: scale(1.3);
+        opacity: 1;
+    }
+}
+
+.contact-info .emergency-number,
+.contact-info .reception-number,
+.contact-info .ambulance-number {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #dc2626;
+    margin: 1rem 0;
+    padding: 1rem;
+    background: linear-gradient(135deg, rgba(220, 38, 38, 0.1), rgba(220, 38, 38, 0.05));
+    border-radius: 0.75rem;
+    border: 1px solid rgba(220, 38, 38, 0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-info .emergency-number::before,
+.contact-info .reception-number::before,
+.contact-info .ambulance-number::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(220, 38, 38, 0.1), transparent);
+    animation: slide-across 3s linear infinite;
+}
+
+@keyframes slide-across {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+.contact-info .email-address {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin: 1rem 0;
+    padding: 1rem;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.05));
+    border-radius: 0.75rem;
+    border: 1px solid rgba(102, 126, 234, 0.2);
+    transition: all 0.3s ease;
+}
+
+.contact-info .address {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--text-color);
+    margin: 1rem 0;
+    padding: 1rem;
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(34, 197, 94, 0.05));
+    border-radius: 0.75rem;
+    border: 1px solid rgba(34, 197, 94, 0.2);
+    transition: all 0.3s ease;
+}
+
+.contact-info strong {
+    color: var(--text-color);
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+/* Contact Section Special Effects */
+.contact-card:nth-child(1) {
+    background: linear-gradient(135deg, rgba(220, 38, 38, 0.05), rgba(220, 38, 38, 0.02));
+    border-color: rgba(220, 38, 38, 0.1);
+}
+
+.contact-card:nth-child(2) {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(59, 130, 246, 0.02));
+    border-color: rgba(59, 130, 246, 0.1);
+}
+
+.contact-card:nth-child(3) {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(102, 126, 234, 0.02));
+    border-color: rgba(102, 126, 234, 0.1);
+}
+
+.contact-card:nth-child(4) {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.05), rgba(34, 197, 94, 0.02));
+    border-color: rgba(34, 197, 94, 0.1);
+}
+
+.contact-card:nth-child(5) {
+    background: linear-gradient(135deg, rgba(236, 72, 153, 0.05), rgba(236, 72, 153, 0.02));
+    border-color: rgba(236, 72, 153, 0.1);
+}
+
+.contact-card:nth-child(6) {
+    background: linear-gradient(135deg, rgba(168, 85, 247, 0.05), rgba(168, 85, 247, 0.02));
+    border-color: rgba(168, 85, 247, 0.1);
 }
