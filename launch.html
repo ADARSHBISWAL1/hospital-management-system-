@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Launch Adimed Hospital System</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            margin: 0;
+            padding: 2rem;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .launch-container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 3rem;
+            border-radius: 1rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            max-width: 500px;
+            width: 100%;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #667eea;
+            text-shadow: 0 2px 4px rgba(102, 126, 234, 0.3);
+        }
+        .launch-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.25);
+        }
+        .launch-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(102, 126, 234, 0.4);
+        }
+        .features {
+            margin-top: 2rem;
+            text-align: left;
+        }
+        .feature {
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 0.5rem;
+            border-left: 4px solid #667eea;
+        }
+        .feature strong {
+            color: #667eea;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .auto-launch {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+    </style>
+</head>
+<body>
+    <div class="launch-container">
+        <h1>🏥 Adimed Hospital Management System</h1>
+        <p style="font-size: 1.2rem; margin-bottom: 2rem;">Complete Hospital Management Solution</p>
+        
+        <a href="index.html" class="launch-button">
+            🚀 Launch System
+        </a>
+        
+        <div class="features">
+            <div class="feature">
+                <strong>✨ Features:</strong> Patient, Doctor, Nurse, Pharmacy, Bed, Lab, Appointment, Billing, Feedback, Contact Management
+            </div>
+            <div class="feature">
+                <strong>🎨 Design:</strong> Modern glass morphism with animated gradient background
+            </div>
+            <div class="feature">
+                <strong>💊 Analytics:</strong> Real-time dashboard with charts and statistics
+            </div>
+            <div class="feature">
+                <strong>💾 Data:</strong> Local storage persistence with export/import capabilities
+            </div>
+            <div class="feature">
+                <strong>🇮🇳 Indian Context:</strong> Localized names, currency (₹), and contact information
+            </div>
+        </div>
+        
+        <div class="auto-launch">
+            ⏱️ Auto-launching in 3 seconds...
+        </div>
+    </div>
+
+    <script>
+        let countdown = 3;
+        const countdownEl = document.querySelector('.auto-launch');
+        
+        const timer = setInterval(() => {
+            countdown--;
+            if (countdown > 0) {
+                countdownEl.textContent = `⏱️ Auto-launching in ${countdown} seconds...`;
+            } else {
+                countdownEl.textContent = '🚀 Launching now...';
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 500);
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
